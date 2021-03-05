@@ -32,7 +32,7 @@ class App extends React.Component {
         <NavBar user={this.state.user} setUser={this.setUser} />
         
         <Route
-          exact path='/welcomepage'
+          exact path='/'
           render={props => {
             if (this.state.user) {
               return <WelcomePage {...props} />
@@ -50,8 +50,8 @@ class App extends React.Component {
         />
 
 
-        <WelcomePage />
-        <Button>Testing</Button>
+
+        <Route exact path='/welcomepage' component={WelcomePage} />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/journal' component={Journal} />
         {/* <Route exact path='/login' component={Login} />

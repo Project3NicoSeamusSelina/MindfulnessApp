@@ -2,12 +2,12 @@
 import axios from 'axios';
 
 const signup = (username, password) => {
-  console.log('step2', username, password)
+  
   return axios.
     post('/auth/signup', { username, password })
   
     .then(response => {
-      console.log('response', response.data)
+      
       return response.data
     })
     .catch(err => {
@@ -27,7 +27,7 @@ const login = (username, password) => {
 }
 
 const logout = () => {
-  console.log('logoutstep1')
+  
   return axios.
     delete('/auth/logout')
     .then(response => {
