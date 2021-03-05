@@ -1,14 +1,29 @@
-
+const JournalEntry = require('../models/JournalEntry.model')
 const router = require("express").Router();
 
 router.get("/", (req, res, next) => {
   res.json("All good in here");
 });
 
-// router.get("/entries", (req, res, next) => {
-//   res.json("All good in here");
-// });
+router.get("/entries", (req, res, next) => {
+res.json("All good in here");
+});
 
+
+router.post('/entries', (req,res, next) => {
+console.log(req.body)
+const {date, entries, description} = req.body;
+JournalEntry.create({date, entries, description})
+  .then(entry => {
+    console.log(entry)
+    
+  }).then(() => {
+    JournalEntry.find().then((allJournals)=> res.send(allJournals))
+  })
+  . catch (err => {
+    next(err)
+  })
+})
 // router.get('/', (req, res, next) => {
 //   Project.find()
 //     .then(projects => {
