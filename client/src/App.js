@@ -11,7 +11,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Components/Authentication/Login'
 import Signup from './Components/Authentication/Signup';
 import Test from "./Components/Test/Test"
-
+import ToDoList from "./Components/ToDoList/ToDoList"
 
 class App extends React.Component {
 
@@ -26,7 +26,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('USERUSERUSER', this.state.user)
+    
     return (
       <div className="App">
         <NavBar user={this.state.user} setUser={this.setUser} />
