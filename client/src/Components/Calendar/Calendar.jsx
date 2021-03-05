@@ -26,8 +26,8 @@ export default class Calendar extends React.Component {
   }
 
 
-  weekdays = moment.weekdays(); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
-  weekdaysShort = moment.weekdaysShort(); // ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+  weekdays = moment.weekdays(); //["Sunday", -"Saturday"]
+  weekdaysShort = moment.weekdaysShort(); // ["Sun" - "Sat"]
   months = moment.months();
 
   year = () => {
