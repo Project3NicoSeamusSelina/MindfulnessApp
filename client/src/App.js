@@ -6,7 +6,7 @@ import Dashboard from './Components/Dashboard/Dashboard'
 import Journal from './Components/Journal/Journal'
 import Calendar from './Components/Calendar/Calendar'
 import Button from 'react-bootstrap/Button';
-import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
+import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Components/Authentication/Login'
 import Signup from './Components/Authentication/Signup';
@@ -52,7 +52,6 @@ class App extends React.Component {
 
         <WelcomePage />
         <Button>Testing</Button>
-        <Calendar />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/journal' component={Journal} />
         {/* <Route exact path='/login' component={Login} />
@@ -61,6 +60,7 @@ class App extends React.Component {
       </div>
     );
   }
+
 }
 
 export default App;
