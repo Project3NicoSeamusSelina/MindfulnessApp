@@ -13,6 +13,8 @@ import Signup from './Components/Authentication/Signup';
 import Test from "./Components/Test/Test"
 import ToDoList from "./Components/ToDoList/ToDoList"
 
+
+
 class App extends React.Component {
 
   state = {
@@ -54,6 +56,9 @@ class App extends React.Component {
         <Route exact path='/welcomepage' component={WelcomePage} />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/journal' component={Journal} />
+        <Route exact path='/routine' component={ToDoList} />
+        {/* <Route exact path='/routine' component={TodoItems} /> */}
+
         {/* <Route exact path='/login' component={Login} />
         <Route exact path='/signup' component={Signup} /> */}
 
