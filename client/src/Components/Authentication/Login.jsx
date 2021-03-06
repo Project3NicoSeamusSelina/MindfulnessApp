@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 import { login } from '../../services/auth';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './authentication.css';
 
 export default class Login extends Component {
 
@@ -32,37 +35,56 @@ export default class Login extends Component {
           // we want to put the user object in the state of App.js
           console.log(user)
           this.props.setUser(user);
-          this.props.history.push('/projects');
+          this.props.history.push('/dashboard');
         }
       })
   }
   render() {
     return (
-      <div>
+      
+      <div className="container d-flex justify-content-center pt-5">
+        <div id="theContainer" className="card shadow p-3 mb-5 bg-black rounded">
+          <div className="container-lg mt-2 card-body">
         <h2>Login</h2>
         <form onSubmit={this.handleSubmit}>
-          <label htmlFor="username">Username: </label>
+          <label htmlFor="username"> </label>
           <input
+          placeholder="Username"
+          className ="usernameText form-control rounded-pill"
             type="text"
             name="username"
             value={this.state.username}
             onChange={this.handleChange}
             id="username"
+            required
+            autofocus
           />
-          <label htmlFor="password">Password: </label>
+          <label htmlFor="password"> </label>
           <input
+          placeholder="Password"
+          className ="passwordText form-control rounded-pill pt-3"
             type="password"
             name="password"
             value={this.state.password}
             onChange={this.handleChange}
             id="password"
+            required
+            autofocus
           />
-          <button type="submit">Log in</button>
+          <button className ="w-50 btn btn-lg mt-3 rounded-pill border" type="submit">Log in</button>
           {this.state.message && (
             <h3>{this.state.message}</h3>
           )}
+          
         </form>
+        <div className="d-flex justify-content-center pt-5"><Link to="/signup">New User? Sign up here!</Link></div>
+           </div>
+           
+        </div>
+        
       </div>
+      
+    
     )
   }
 }

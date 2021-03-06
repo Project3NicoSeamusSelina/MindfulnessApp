@@ -1,0 +1,16 @@
+
+
+#theContainer {
+  height: 20rem;
+  width: 30rem;
+  font-family: 'Cormorant Garamond', serif;
+}
+
+
+.passwordText {
+text-align: center;
+}
+
+.usernameText {
+  text-align: center;
+}
