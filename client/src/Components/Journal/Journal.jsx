@@ -5,6 +5,7 @@ import Entry from './Entry'
 import Calendar from '../Calendar/Calendar'
 import { BrowserRouter, Route, Link } from "react-router-dom";
 import moment from 'moment';
+import CalendarSecond from '../CalendarSec/CalendarSec'
 
 export default class Journal extends Component {
   // onDayClick=(e, day, month, year)=> {
@@ -45,10 +46,11 @@ export default class Journal extends Component {
   
     return (
       <div>
+        <CalendarSecond />
         {/* <NavBar /> */}
-        <Calendar setSelectedDate={this.setSelectedDate} currentDay={this.state.day}  currentMonth={this.state.month}/> 
+        {/* <Calendar setSelectedDate={this.setSelectedDate} currentDay={this.state.day}  currentMonth={this.state.month}/>  */}
         {/* <Calendar onDayClick={(e, day, month, year)=> this.onDayClick(e, day, month, year)}/>  */}
-        <Entry selectedDay={this.state.day} selectedMonth={this.state.month}/>
+        {/* <Entry selectedDay={this.state.day} selectedMonth={this.state.month}/> */}
       </div>
     )
   }
