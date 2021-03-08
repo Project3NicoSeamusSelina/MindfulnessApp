@@ -38,8 +38,7 @@ export default class AddEntry extends Component {
           describtion: "",
           entry: ""
         })
-        // update the list of projects in Projects.js - we use the getData function 
-        // in the props
+     
         console.log(this.state, "stte at FE")
         this.props.getData();
       })

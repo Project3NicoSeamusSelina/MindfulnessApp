@@ -4,8 +4,8 @@ import 'moment-timezone';
 import './Calendar.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+// import { faCoffee } from '@fortawesome/free-solid-svg-icons'
 // import '../node_modules/font-awesome/css/font-awesome.min.css'; 
 
 
@@ -15,7 +15,16 @@ export default class Calendar extends React.Component {
       today: moment(),
       showMonthPopup: false,
       showYearPopup: false,
-      selectedDay: null
+      selectedDay: null,
+      testMonth:"",
+  }
+
+  componentDidUpdate(){
+      if(this.props.currentDay != this.state.selectedDay && this.props.currentMonth != this.state.testMonth) {
+          console.log(this.state, this.props, "props & atate at calander")
+        this.props.setSelectedDate(this.state.selectedDay, this.state.testMonth || this.state.today)
+      }
+      
   }
 
   constructor(props) {
@@ -58,7 +67,8 @@ export default class Calendar extends React.Component {
       let dateContext = Object.assign({}, this.state.dateContext);
       dateContext = moment(dateContext).set("month", monthNo);
       this.setState({
-          dateContext: dateContext
+          dateContext: dateContext,
+          testMonth: dateContext
       });
   }
 
@@ -168,17 +178,25 @@ export default class Calendar extends React.Component {
       );
   }
 
-  onDayClick = (e, day) => {
+  onDayClick = (e, day, month, year) => {
       this.setState({
-          selectedDay: day
+          selectedDay: day,
+          selectedMonth: month,
+          selectedYear: year
+        
       }, () => {
-          console.log("SELECTED DAY: ", this.state.selectedDay);
+        //   console.log("SELECTED DAY: ", this.state.selectedDay);
       });
-
-      this.props.onDayClick && this.props.onDayClick(e, day);
+    //   console.log('HEREAGAIN!', this.props.onDayClick)
+      console.log("TARGETED", e, day, month, year)
+      this.props.onDayClick && this.props.onDayClick(e, day, month, year);
+   
+        // console.log('HERE!', this.props.onDayClick)
+        
   }
 
   render() {
+     
       // Map the weekdays i.e Sun, Mon, Tue etc as <td>
       let weekdays = this.weekdaysShort.map((day) => {
           return (
