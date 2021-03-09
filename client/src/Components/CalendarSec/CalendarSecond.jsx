@@ -11,6 +11,10 @@ export default class CalendarSecond extends React.Component {
     };
   }
 
+  componentDidUpdate() {
+    this.props.selectedDay;
+  }
+
   handleDayClick(day, { selected }) {
     this.setState({
       selectedDay: selected ? undefined : day,
@@ -18,8 +22,10 @@ export default class CalendarSecond extends React.Component {
     });
   }
 
+  
+
   render() {
-    console.log('HOPE', this.state.selectedDay)
+    console.log('SELECTED DAY', this.state.selectedDay)
     return (
       <div>
         <DayPicker
