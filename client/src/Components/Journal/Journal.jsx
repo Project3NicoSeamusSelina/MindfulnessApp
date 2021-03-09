@@ -50,7 +50,7 @@ export default class Journal extends Component {
         {/* <NavBar /> */}
         {/* <Calendar setSelectedDate={this.setSelectedDate} currentDay={this.state.day}  currentMonth={this.state.month}/>  */}
         {/* <Calendar onDayClick={(e, day, month, year)=> this.onDayClick(e, day, month, year)}/>  */}
-        {/* <Entry selectedDay={this.state.day} selectedMonth={this.state.month}/> */}
+        <Entry selectedDay={this.state.day} selectedMonth={this.state.month}/>
       </div>
     )
   }

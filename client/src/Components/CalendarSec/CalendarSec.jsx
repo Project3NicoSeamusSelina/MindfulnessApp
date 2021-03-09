@@ -14,6 +14,7 @@ export default class CalendarSecond extends React.Component {
   handleDayClick(day, { selected }) {
     this.setState({
       selectedDay: selected ? undefined : day,
+      
     });
   }
 
