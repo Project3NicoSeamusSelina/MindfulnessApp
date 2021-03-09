@@ -5,9 +5,15 @@ import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
 
 export default class NavBar extends Component {
 
+  state = {
+    loggedin: true,
+  }
+
+
     handleLogout = () => {
       console.log('LOGGEDOUT')
       logout()
+      this.setState({loggedIn: false})
       this.props.history.push('/login')
       .then(direction => {
         console.log(direction)
@@ -19,6 +25,9 @@ export default class NavBar extends Component {
      
     }
   render() {
+    if(this.state.loggedIn === false) {
+      return (<Redirect to="/home" />)
+    }
     return (
       
       <div>

@@ -32,14 +32,14 @@ export default class AddEntry extends Component {
     })
       .then((response) => {
         console.log(response.data, "response at axios post FE")
+       
         this.setState({
           journal: response.data,
-          date:"",
+          date: '',
           describtion: "",
           entry: ""
         })
-        // update the list of projects in Projects.js - we use the getData function 
-        // in the props
+        
         console.log(this.state, "stte at FE")
         this.props.getData();
       })
