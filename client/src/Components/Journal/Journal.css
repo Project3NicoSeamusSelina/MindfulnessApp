@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
+form{
+  font: 500 1rem/1.1 'Montserrat', sans-serif;
+}
+[type=radio] { 
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  
+}
+
+/* IMAGE STYLES */
+[type=radio] + img {
+  cursor: pointer;
+  width: 5em;
+  margin-right: 0.7em;
+  margin-left: 0.7em;
+}
+
+/* CHECKED STYLES */
+[type=radio]:checked + img {
+  filter: invert(12%) sepia(41%) saturate(6285%) hue-rotate(323deg) brightness(96%) contrast(101%);
+ }
+
+#header{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin-top:1em;
+}
+
+.option{
+  margin-top: 2em;
+}
+
+input {
+  width:60%;
+  border-radius:10px;
+  padding:10px;
+  border:0;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  }
+
+.box {
+  height: 5em;
+  background-color: white;
+  border-radius:10px;
+  padding:10px;
+  border:0;
+  margin-top: 0em;
+  margin-right: 1em;
+  display: flex;
+  align-items: center;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+}
+
+.moodBoxes {
+  
+  margin-top: 0em;
+  display: flex;
+  direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.optionBoxes{
+  margin-bottom: 0;
+  width: 60%;
+  display: flex;
+  direction: column;
+  justify-content: flex-start;
+  margin-left: 20%;
+}
+
+.question{
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+  width: 60%;
+  display: flex;
+  direction: column;
+  justify-content: flex-start;
+  margin-left: 20%;
+}
+
+#btn{
+  background-color: black;
+  color: white;
+  width: 15%;
+  border-radius:10px;
+  padding:10px;
+  display: flex;
+  direction: column;
+  justify-content: flex-start;
+  
+  margin-left: 20%;
+  margin-top: 1em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
+

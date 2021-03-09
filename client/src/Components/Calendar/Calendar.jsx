@@ -15,7 +15,8 @@ export default class Calendar extends React.Component {
       today: moment(),
       showMonthPopup: false,
       showYearPopup: false,
-      selectedDay: null
+      selectedDay: null,
+      currentMonth:"",
   }
 
   constructor(props) {
@@ -81,10 +82,14 @@ export default class Calendar extends React.Component {
   }
 
   onSelectChange = (e, data) => {
+      console.log("this is the month",data)
       this.setMonth(data);
       this.props.onMonthChange && this.props.onMonthChange();
-
+      this.setState({
+        currentMonth: data
+    });
   }
+  
   SelectList = (props) => {
       let popup = props.data.map((data) => {
           return (
@@ -104,7 +109,7 @@ export default class Calendar extends React.Component {
   }
 
   onChangeMonth = (e, month) => {
-      this.setState({
+           this.setState({
           showMonthPopup: !this.state.showMonthPopup
       });
   }
@@ -133,6 +138,7 @@ export default class Calendar extends React.Component {
       this.setState({
           dateContext: dateContext
       })
+      console.log(this.state.dateContext)
   }
   onYearChange = (e) => {
       this.setYear(e.target.value);
@@ -240,7 +246,7 @@ export default class Calendar extends React.Component {
       return (
         <div className="container bg-dark d-flex justify-content-center pt-5 pb-5">
           <div className="">
-              <table className="calendar">
+                 <table className="calendar">
                   <thead>
                       <tr className="calendar-header">
                       <th scope="row"></th>

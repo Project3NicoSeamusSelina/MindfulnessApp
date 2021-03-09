@@ -12,8 +12,8 @@ res.json("All good in here");
 
 router.post('/entries', (req,res, next) => {
 console.log(req.body)
-const {date, entries, description} = req.body;
-JournalEntry.create({date, entries, description})
+const {date, question1, question2, question3} = req.body;
+JournalEntry.create({date, question1, question2, question3})
   .then(entry => {
     console.log(entry)
     
