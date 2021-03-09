@@ -5,18 +5,18 @@ router.get("/", (req, res, next) => {
   res.json("All good in here");
 });
 
-router.get("/entries", (req, res, next) => {
-  //GET THE ENTRIES FOR THE JOURNAL 
-res.json("All good in here");
+router.get("/getCurrentDayJournal", (req, res, next) => {
+  console.log('finnayl I have the date at the fck backend', req.params, req.body)
+  
 });
 
 // ADD ROUTER.GET TO RETRIEVE WHAT WE HAVE IN LINE 22 
 router.post('/entries', (req,res, next) => {
 console.log(req.body)
-const {date, entries, description} = req.body;
-JournalEntry.create({date, entries, description})
+const {date, question1, question2, question3} = req.body;
+JournalEntry.create({date, question1, question2, question3})
   .then(entry => {
-    console.log(entry)
+    res.send(entry)
     
   }).then(() => {
     JournalEntry.find().then((allJournals)=> res.send(allJournals))
@@ -25,15 +25,7 @@ JournalEntry.create({date, entries, description})
     next(err)
   })
 })
-// router.get('/', (req, res, next) => {
-//   Project.find()
-//     .then(projects => {
-//       res.json(projects);
-//     })
-//     .catch(err => {
-//       next(err)
-//     })
-// });
+
 
 // You put the next routes here 👇
 // example: router.use("/auth", authRoutes)

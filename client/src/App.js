@@ -35,6 +35,10 @@ class App extends React.Component {
     return (
       <div className="App">
         <NavBar user={this.state.user} setUser={this.setUser} />
+        {/* <Route 
+        exact path='/navbar'
+        user={this.state.user} 
+        setUser={this.setUser} /> */}
         
         <Route
           exact path='/'
