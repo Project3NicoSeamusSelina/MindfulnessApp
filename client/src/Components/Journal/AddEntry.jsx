@@ -12,6 +12,8 @@ export default class AddEntry extends Component {
     question1:'',
     question2: '',
     question3: '',
+    ratingMood: '',
+    ratingMotivation: '',
     journal: [],
   }
 
@@ -31,6 +33,8 @@ export default class AddEntry extends Component {
       question1: this.state.question1,
       question2: this.state.question2,
       question3: this.state.question3,
+      ratingMood: this.state.ratingMood,
+      ratingMotivation: this.state.ratingMotivation
     })
       .then((response) => {
         //console.log(response.data, "response at axios post FE")
@@ -40,7 +44,9 @@ export default class AddEntry extends Component {
           date:"",
           question1: "",
           question2: "",
-          question3: ""
+          question3: "",
+          ratingMood: "",
+          ratingMotivation: "",
         })
         // update the list of projects in Projects.js - we use the getData function 
         // in the props
@@ -52,9 +58,9 @@ export default class AddEntry extends Component {
   
 
   render() {
-    let data = this.state.journal.map(element => {
+    /* let data = this.state.journal.map(element => {
       return element.date
-    })
+    }) */
     return (
       <div className='entryBox'>
         <h1 id='header'>Add a new entry</h1>
@@ -102,9 +108,9 @@ export default class AddEntry extends Component {
         
         <p className='question'>How would you describe your current mood?</p>
         <div className='optionBoxes'>
-        <fieldset className='moodBoxes'  >
+        <fieldset className='moodBoxes' onChange={this.handleChange} >
             <label className='box' >
-              <input type="radio" name="mood" value="Happy" />
+              <input type="radio" name="mood" value="happy" />
               <img src={'/images/Happy.png'} />
             </label>
 
@@ -119,7 +125,7 @@ export default class AddEntry extends Component {
           </label>
 
           <label className='box'>
-            <input type="radio" name="mood" value="Unhappy" />
+            <input type="radio" name="mood" value="unhappy" />
             <img src={'/images/Unhappy.png'} />
           </label>
         </fieldset>
@@ -128,22 +134,22 @@ export default class AddEntry extends Component {
         <div className='optionBoxes'>
         <fieldset className='moodBoxes'  >
             <label className='box' >
-              <input type="radio" name="motivation" value="Happy" />
+              <input type="radio" name="motivation" value="motivated" />
               <img src={'/images/fullEnergy.png'} />
             </label>
 
           <label className='box'>
-            <input type="radio" name="motivation" value="ratherHappy" />
+            <input type="radio" name="motivation" value="ratherMotivated" />
             <img src={'/images/muchEnergy.png'} />
           </label>
 
           <label className='box'>
-            <input type="radio" name="motivation" value="ratherUnhappy" />
+            <input type="radio" name="motivation" value="littleMotivated" />
             <img src={'/images/littleEnergy.png'} />
           </label>
 
           <label className='box'>
-            <input type="radio" name="motivation" value="noEnergy" />
+            <input type="radio" name="motivation" value="notMotivated" />
             <img src={'/images/noEnergy.png'} />
           </label>
         </fieldset>
