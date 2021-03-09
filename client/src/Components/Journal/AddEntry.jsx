@@ -34,6 +34,7 @@ export default class AddEntry extends Component {
         console.log(response.data, "response at axios post FE")
         this.setState({
           journal: response.data,
+          
           date:"",
           describtion: "",
           entry: ""

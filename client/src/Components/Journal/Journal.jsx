@@ -2,17 +2,19 @@
 import React, { Component } from 'react'
 import NavBar from '../NavBar/NavBar'
 import Entry from './Entry'
-import Calendar from '../Calendar/Calendar'
 import { BrowserRouter, Route, Link } from "react-router-dom";
+import MyCalendar from '../Calendar/Calendar1' 
 
+import Calendar from 'react-calendar'
+import 'react-calendar/dist/Calendar.css';
 
 export default class Journal extends Component {
   render() {
     return (
       <div>
         {/* <NavBar /> */}
-        <Calendar/> 
-        
+        <Calendar
+        />
         <Entry/>
       </div>
     )

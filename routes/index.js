@@ -6,10 +6,11 @@ router.get("/", (req, res, next) => {
 });
 
 router.get("/entries", (req, res, next) => {
+  //GET THE ENTRIES FOR THE JOURNAL 
 res.json("All good in here");
 });
 
-
+// ADD ROUTER.GET TO RETRIEVE WHAT WE HAVE IN LINE 22 
 router.post('/entries', (req,res, next) => {
 console.log(req.body)
 const {date, entries, description} = req.body;
