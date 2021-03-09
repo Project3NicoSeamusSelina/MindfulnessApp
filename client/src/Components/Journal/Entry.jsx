@@ -1,36 +1,26 @@
 import React, { Component } from 'react'
 import AddEntry from './AddEntry';
 import axios from 'axios';
-import moment from 'moment';
 
-/* export default class Entry extends Component {
-  state = {
-    entries: []
+
+ export default class Entry extends Component {
+
+   state = {
+      selectedDay: this.props.selectedDay
+   }
+ 
+ 
+
+  getData = () => {
+    let selectedDay = this.state.selectedDay
+    console.log("This is the selected day", selectedDay)
+    axios.get(`/getSelectedEntry?date=${selectedDay}`)
+    .then(response=>console.log("this is the response",response))
+    .catch(err =>console.log(err)) 
   }
 
   componentDidUpdate() {
-    this.getData();
-  }
-
-  getData = async () => {
-    console.log("trigger durch comppnentdidmount")
-    let {selectedDay, selectedMonth} = this.props
-    try {
-      let request = await axios.get("http://localhost:5005/getCurrentDayJournal", {
-        DataTransferItem:{
-          day: selectedDay,
-          month: selectedMonth
-        }
-        
-      })
-      let current = await request
-      console.log(current)
-    } catch (err) {
-      console.log(err)
-    }
-    console.log(selectedDay, selectedMonth, "at FE day and month at entry inside req")
-    
-     
+    this.getData()
   }
 
   render() {
@@ -38,7 +28,8 @@ import moment from 'moment';
     return (
       <div>
         <AddEntry getData={this.getData} />
+        
       </div>
     )
   }
-} */
+}
