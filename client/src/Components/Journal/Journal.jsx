@@ -15,13 +15,24 @@ export default class Journal extends Component {
   // }
   
   state = {
-    selectedDay: 0,
+    selectedDay: null,
   }
   
   componentDidMount(){
     this.getData();
   }
+
+   
+  componentDidUpdate(){
+    this.getOtherData();
+  }
  
+  getDates =(day) => {
+    this.setState({
+      selectedDay: day
+    })
+    console.log(this.state.selectedDay, "state selectedday at jounral")
+  }
   
   getData = () => {
     /* REMINDER: before deployment change to horoku link!! */
@@ -37,19 +48,27 @@ export default class Journal extends Component {
         console.log(err)
       })
   }
-
+  getOtherData = () => {
+    let selectedDay = this.state.selectedDay
+    console.log("This is the selected day", selectedDay)
+    axios.get("/getSelectedEntry", {
+      selectedDay
+    })
+    .then(response=>console.log("this is the response",response))
+    .catch(err =>console.log(err)) 
+  }
 
   
   render() {
-  
+    this.getOtherData();
     return (
       <div>
-        <CalendarSecond selectedDay={this.state.selectedDay}/>
+        <CalendarSecond getDates={this.getDates} selectedDay={this.state.selectedDay}/>
         <AddEntry getData={this.getData} />
         {/* <NavBar /> */} 
         {/* <Calendar setSelectedDate={this.setSelectedDate} currentDay={this.state.day}  currentMonth={this.state.month}/>  */}
         {/* <Calendar onDayClick={(e, day, month, year)=> this.onDayClick(e, day, month, year)}/>  */}
-        {/* <Entry selectedDay={this.state.day} selectedMonth={this.state.month}/> */}
+        <Entry selectedDay={this.state.selectedDay}/>
       </div>
     )
   }

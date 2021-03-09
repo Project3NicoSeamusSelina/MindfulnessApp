@@ -12,10 +12,13 @@ export default class CalendarSecond extends React.Component {
   }
 
   componentDidUpdate() {
-    this.props.selectedDay;
+    if(this.props.selectedDay !== this.state.selectedDay){
+      this.props.getDates(this.state.selectedDay);
+    }
   }
 
   handleDayClick(day, { selected }) {
+  
     this.setState({
       selectedDay: selected ? undefined : day,
       
