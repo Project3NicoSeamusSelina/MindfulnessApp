@@ -3,7 +3,7 @@ import AddEntry from './AddEntry';
 import axios from 'axios';
 import moment from 'moment';
 
-export default class Entry extends Component {
+/* export default class Entry extends Component {
   state = {
     entries: []
   }
@@ -41,4 +41,4 @@ export default class Entry extends Component {
       </div>
     )
   }
-}
+} */

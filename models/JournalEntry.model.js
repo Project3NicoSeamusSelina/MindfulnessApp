@@ -6,6 +6,8 @@ const journalEntrySchema = new Schema({
   question1: String,
   question2: String,
   question3: String,
+  ratingMood: String,
+  ratingMotivation: String,
   entries:[String],
   user: { type: Schema.Types.ObjectId, ref: 'User' }
 });
