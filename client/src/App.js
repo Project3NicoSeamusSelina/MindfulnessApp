@@ -29,7 +29,7 @@ class App extends React.Component {
   }
 
   render() {
-    
+    console.log('APP USER', this.state.user)
     return (
       <div className="App">
         <NavBar user={this.state.user} setUser={this.setUser} />
@@ -37,7 +37,7 @@ class App extends React.Component {
         exact path='/navbar'
         user={this.state.user} 
         setUser={this.setUser} /> */}
-        
+
         <Route
           exact path='/'
           render={props => {
@@ -46,7 +46,6 @@ class App extends React.Component {
             } else return <Redirect to='/login' />
           }}
         />
-
         <Route
           exact path='/signup'
           render={props => <Signup setUser={this.setUser} {...props} />}
@@ -55,12 +54,9 @@ class App extends React.Component {
           exact path='/login'
           render={props => <Login setUser={this.setUser} {...props} />}
         />
-
-
-
         <Route exact path='/welcomepage' component={WelcomePage} />
         <Route exact path='/dashboard' component={Dashboard} />
-        <Route exact path='/journal' component={Journal} />
+        <Route exact path='/journal' component={Journal} user={this.state.user} />
         <Route exact path='/routine' component={ToDoList} />
         <Route exact path='/visionboard' component={VisionBoard} />
         
