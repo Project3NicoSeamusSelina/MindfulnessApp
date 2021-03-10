@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
 const journalEntrySchema = new Schema({
-  date: Date,
+  date: String,
   question1: String,
   question2: String,
   question3: String,
