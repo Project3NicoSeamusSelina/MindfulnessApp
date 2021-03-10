@@ -23,7 +23,7 @@ body {
   background-color: #b3b8be;
   color: #FFF;
   border: 2px solid #b3b8be;
-  border-radius: 100%;
+  border-radius: 0%;
 }
 .todoListMain .header button:hover {
   background-color: #4d5972;

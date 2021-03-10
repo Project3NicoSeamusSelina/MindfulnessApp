@@ -16,7 +16,7 @@ axios.get('http://localhost:5005/auth/loggedin')
       </BrowserRouter>,
       document.getElementById('root')
     );
-  })
+  })  
   .catch(err => {
     console.log(err)
   })

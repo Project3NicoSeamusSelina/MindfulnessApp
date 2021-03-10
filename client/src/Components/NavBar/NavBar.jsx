@@ -34,6 +34,7 @@ export default class NavBar extends Component {
         <Link to="/journal">Journal</Link>
         <Link to="/routine">Daily Routine</Link>
         <Link to="/moodtracker">Mood Tracker</Link>
+        <Link to="/visionboard">Vision Board</Link>
         <Link to="/logout" onClick={() => this.handleLogout()}>Logout</Link>
       </div>
       
