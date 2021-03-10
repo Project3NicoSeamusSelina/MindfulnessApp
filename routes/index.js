@@ -73,7 +73,7 @@ router.post('/items', (req,res,next) => {
       console.log('Create')
       Routine.create({
         list: [todo],
-        user:user
+        user:req.user._id
       })
       .then(response => console.log(response)) 
     }
