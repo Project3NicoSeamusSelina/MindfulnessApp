@@ -7,10 +7,12 @@ router.get("/", (req, res, next) => {
 
 router.get('/getSelectedEntry', (req, res, next) => {
   console.log('REQ QUERY HERE 3', typeof req.query.date)
+  
   res.json(req.query.date)
     JournalEntry.findOne({
       date: req.query.date
     })
+    .populate('user')
     .then(entries => {
       console.log('THESE ARE THE ENTRIES', entries)
       res.json(entries);
@@ -22,8 +24,9 @@ router.get('/getSelectedEntry', (req, res, next) => {
 
 router.post('/entries', (req,res, next) => {
   const {date, question1, question2, question3, ratingMood, ratingMotivation} = req.body;
-  JournalEntry.create({date, question1, question2, question3, ratingMood, ratingMotivation})
-    .then(response => res.send(response))
+  JournalEntry.create({date, question1, question2, question3, ratingMood, ratingMotivation, user: req.user})
+
+    .then(response => res.json(response))
     .catch(err=> next(err))
 })
 
