@@ -28,7 +28,7 @@ export default class CalendarSecond extends React.Component {
   
 
   render() {
-    console.log('CALENDAR IS HERE', this.state.selectedDay)
+    
     return (
       <div>
         <DayPicker

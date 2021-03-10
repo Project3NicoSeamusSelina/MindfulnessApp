@@ -17,10 +17,9 @@ export default class NavBar extends Component {
       this.props.history.push('/login')
       .then(direction => {
         console.log(direction)
-        // this.props.history.push('/login')
+        //this.props.history.push('/login')
         this.props.setUser(null)
        
-    
       })
      
     }

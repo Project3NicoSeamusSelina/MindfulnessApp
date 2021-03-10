@@ -21,7 +21,7 @@ export default class Journal extends Component {
   }
   
   render() {
-    // console.log('JOURNAL', this.state.selectedDay)
+    
     return (
       <div>
         <CalendarSecond getDates={this.getDates} selectedDay={this.state.selectedDay} />

@@ -9,11 +9,10 @@ import axios from 'axios';
   }
 
   getData = () => {
-    //console.log('PASSED TO DB', this.props.selectedDay);
+
     if (this.props.selectedDay) {
       axios.get(`/getSelectedEntry?date=${this.props.selectedDay}`)
       .then(response => {
-        //console.log("this is the response", response)
         this.setState({entry: response.data})
 
       })
@@ -34,17 +33,17 @@ import axios from 'axios';
   }
 
   render() {
-    if(!this.state.entry) return (<p>Still Loading</p>)
+    if(!this.state.entry) return (<p>No entry for today, Asshole. We're working for you. LOG YOUR FEELINGS!</p>)
     else {
     return (
       
       <div>
-        <p>date: {this.state.entry.date} </p>
-        <p>question1: {this.state.entry.question1}</p>
-        <p>question2 {this.state.entry.question2}</p>
-        <p>question3: {this.state.entry.question3}</p>
-        <p>ratingMood: {this.state.entry.ratingMood} </p>
-        <p>ratingMotivation: {this.state.entry.ratingMotivation}</p> 
+        <p>Date: {this.state.entry.date} </p>
+        <p>you looked forward to: {this.state.entry.question1}</p>
+        <p>you were grateful for: {this.state.entry.question2}</p>
+        <p>you were focused on: {this.state.entry.question3}</p>
+        <p>Your Mood: {this.state.entry.ratingMood} </p>
+        <p>Your Motivation: {this.state.entry.ratingMotivation}</p> 
       </div>
     )
     }
