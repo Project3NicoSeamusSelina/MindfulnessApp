@@ -1,64 +1,74 @@
-import React, { Component } from "react";
-import './style.css';
-import TodoItems from "./TodoItems"
- 
-class TodoList extends Component {
+import React from "react"
+import axios from 'axios';
+import ToDoListItems from "./ToDoListItems";
+
+
+export default class ToDoList extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      items: []
+    this.state = { 
+      todo: '', 
+      entries:[]
     };
-
-    this.addItem = this.addItem.bind(this);
-    this.deleteItem = this.deleteItem.bind(this);
   }
 
-  addItem(e) {
-    if (this._inputElement.value !== "") {
-      let newItem = {
-        text: this._inputElement.value,
-        key: Date.now()
-      };
-   
-      this.setState((prevState) => {
-        return { 
-          items: prevState.items.concat(newItem) 
-        };
-      });
-    }
-    this._inputElement.value = "";
+  componentDidMount() {
+    this.getData();
+  }
+  
+  handleSubmit= event => {
+    event.preventDefault();
+    axios.post('/items', {
+      todo: this.state.todo,
+      user: this.props.user
      
+    })
+      .then((response) => {
+       console.log(response.data, "response at axios post FE") 
+        this.setState({
+            todo: '',
+            entries:[]
+        })      
+      })
+  }
+  
+  handleChange= (event) => {
     
-       
-    e.preventDefault();
- 
-  }
-  deleteItem(key) {
-    const filteredItems = this.state.items.filter(function (item) {
-      return (item.key !== key);
-    });
-   
+    const name = event.target.name
+    let value = event.target.value
     this.setState({
-      items: filteredItems
-    });
+      [name]: value
+    })
   }
-  render() {
-    return (
-      <div className="todoListMain">
-        <div className="header">
-          <form onSubmit={this.addItem}>
-            <input ref={(a) => this._inputElement = a}
-                    placeholder="today i want to...">
-            </input>
-            <button type="submit">add</button>
-          </form>
-        </div>
-        <TodoItems entries={this.state.items}
-                    delete={this.deleteItem}/>
+
+  getData = () => {
+    console.log('PASSED TO DB', this.props.todo);
+    if (this.props.todo) {
+      axios.get('/items')
+      .then(response => {
+        console.log("this is the response", response)
+        this.setState({
+          entries: response.data
+        })
+      })
+      .catch(err => console.log(err)) 
+    }
+  }
+
+  render(){
+    console.log("THIS IS THE USER", this.props.user)
+    return(
+      <div>
+        <h1>Test</h1>
+        <form onSubmit={this.handleSubmit}>
+          <label >
+              ToDo:
+          <input type="text" name="todo" id="todo" value={this.state.todo.value} onChange={this.handleChange}/>
+            </label>
+          <button id='btn' type="submit">Add to Do</button>
+        </form>
+       <ToDoListItems entries={this.state.entries}/>
       </div>
-    );
+    )
   }
 }
- 
-export default TodoList;
