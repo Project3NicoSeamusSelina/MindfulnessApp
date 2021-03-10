@@ -27,8 +27,9 @@ export default class AddEntry extends Component {
   }
 
   handleSubmit = event => {
+    console.log('STEP 1', this.state)
     event.preventDefault();
-    axios.post('http://localhost:5005/entries', {
+    axios.post('/entries', {
       date: this.state.date,
       question1: this.state.question1,
       question2: this.state.question2,
@@ -50,7 +51,7 @@ export default class AddEntry extends Component {
         // update the list of projects in Projects.js - we use the getData function 
         // in the props
         //console.log(this.state, "stte at FE")
-        this.props.getData();
+        // this.props.getData();
       })
   }
 
