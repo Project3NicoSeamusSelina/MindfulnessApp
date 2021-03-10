@@ -43,7 +43,7 @@ router.get('/getSelectedEntry', (req, res, next) => {
 
 router.post('/entries', (req,res, next) => {
   const {date, question1, question2, question3, ratingMood, ratingMotivation} = req.body;
-   JournalEntry.create({date, question1, question2, question3, ratingMood, ratingMotivation})
+   JournalEntry.create({date, question1, question2, question3, ratingMood, ratingMotivation, user: req.user})
     .then(response => res.send(response))
 
     .catch(err=> next(err))
