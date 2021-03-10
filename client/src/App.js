@@ -1,17 +1,18 @@
 import React from 'react'
 import './App.css';
+
 import WelcomePage from "./Components/WelcomePage/WelcomePage"
 import NavBar from './Components/NavBar/NavBar.jsx'
 import Dashboard from './Components/Dashboard/Dashboard'
 import Journal from './Components/Journal/Journal'
-import Calendar from './Components/Calendar/Calendar'
 import Button from 'react-bootstrap/Button';
 import { BrowserRouter, Route, Link, Switch, Redirect } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Login from './Components/Authentication/Login'
 import Signup from './Components/Authentication/Signup';
-import Test from "./Components/Test/Test"
-import ToDoList from "./Components/ToDoList/ToDoList"
+import ToDoList from "./Components/ToDoList/ToDoList";
+import VisionBoard from "./Components/Vision Board/VisionBoard"
+
 
 
 
@@ -61,6 +62,8 @@ class App extends React.Component {
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/journal' component={Journal} />
         <Route exact path='/routine' component={ToDoList} />
+        <Route exact path='/visionboard' component={VisionBoard} />
+        
         {/* <Route exact path='/routine' component={TodoItems} /> */}
 
         {/* <Route exact path='/login' component={Login} />

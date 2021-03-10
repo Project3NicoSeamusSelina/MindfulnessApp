@@ -47,8 +47,7 @@ export default class AddEntry extends Component {
           ratingMood: "",
           ratingMotivation: "",
         })
-        // update the list of projects in Projects.js - we use the getData function 
-        // in the props
+       
         //console.log(this.state, "stte at FE")
         this.props.getData();
       })
@@ -109,7 +108,7 @@ export default class AddEntry extends Component {
         <div className='optionBoxes'>
         <fieldset className='moodBoxes' onChange={this.handleChange} >
             <label className='box' >
-              <input type="radio" name="mood" value="happy" />
+              <input type="radio" name="mood" value={this.state.ratingMood} />
               <img src={'/images/Happy.png'} />
             </label>
 

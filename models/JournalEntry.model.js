@@ -8,8 +8,8 @@ const journalEntrySchema = new Schema({
   question3: String,
   ratingMood: String,
   ratingMotivation: String,
-  entries:[String],
-  user: { type: Schema.Types.ObjectId, ref: 'User' }
+  user: { type: Schema.Types.ObjectId, 
+    ref: 'User' }
 });
 
 const JournalEntry = model('journalEntries', journalEntrySchema);
