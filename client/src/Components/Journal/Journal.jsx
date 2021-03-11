@@ -8,6 +8,7 @@ import CalendarSecond from '../CalendarSec/CalendarSecond';
 import AddEntry from './AddEntry';
 import axios from 'axios';
 
+
 export default class Journal extends Component {
   
   state = {
@@ -23,10 +24,13 @@ export default class Journal extends Component {
   render() {
     
     return (
-      <div>
+      <div className="container journalContainer d-flex justify-content-center">
         <CalendarSecond getDates={this.getDates} selectedDay={this.state.selectedDay} />
         <Entry selectedDay={this.state.selectedDay}/>
+         <div className=" d-flex justify-content-center">
         <AddEntry />
+        </div>
+        
         {/* <NavBar /> */} 
         {/* <Calendar setSelectedDate={this.setSelectedDate} currentDay={this.state.day}  currentMonth={this.state.month}/>  */}
         {/* <Calendar onDayClick={(e, day, month, year)=> this.onDayClick(e, day, month, year)}/>  */}
