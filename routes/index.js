@@ -24,7 +24,6 @@ router.get('/getSelectedEntry', (req, res, next) => {
     .populate('user')
     .then(entries => {
       res.json(entries)
-      ;
     })
     .catch(err => {
       next(err)
@@ -42,6 +41,38 @@ router.post('/entries', (req,res, next) => {
 
 // You put the next routes here 👇
 // example: router.use("/auth", authRoutes)
+
+//Todolist here 
+
+router.post('/items', (req,res,next) => {
+  const {todo, user} = req.body;
+  console.log("this is the user", user)
+  console.log("this is the user from the backend", req.user._id)
+  Routine.findOne({user: user})
+  .then((response)=>{
+    if (response === null){
+      console.log('Create')
+      Routine.create({
+        list: [todo],
+        user:req.user._id
+      })
+      .then(response => console.log(response)) 
+    }
+    else{
+      console.log('Update')
+      Routine.findOneAndUpdate({user: user},{$push:{list:todo}})
+      .then(response => console.log(response)) 
+    }
+  })
+})
+
+router.get('/items', (req,res,next)=> {
+  Routine.findOne({user: req.user._id})
+  .then(items => {
+    res.json(items.list);
+  })
+  .catch(err => next(err))
+})
 
 module.exports = router;
 

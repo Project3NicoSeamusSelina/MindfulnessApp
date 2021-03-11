@@ -33,7 +33,7 @@ import axios from 'axios';
   }
 
   render() {
-    if(!this.state.entry) return (<p>No entry for today, Asshole. We're working for you. LOG YOUR FEELINGS!</p>)
+    if(!this.state.entry) return (<p>Please select a day</p>)
     else {
     return (
       
