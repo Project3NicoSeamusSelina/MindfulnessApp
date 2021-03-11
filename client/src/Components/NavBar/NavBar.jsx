@@ -28,12 +28,12 @@ export default class NavBar extends Component {
           </div>
         <div className="container rounded-pill navBar d-flex justify-content-center">
           
-        <Link className="p-2" to="/journal">Journal</Link>
-        <Link className="p-2" to="/routine">Daily Routine</Link>
-        <Link className="p-2" to="/dashboard">Dashboard</Link>
+        <Link className="pr-5 pt-2 pb-2 font-weight-bold navBarLink" to="/journal">Journal</Link>
+        <Link className="pr-5 pt-2 pb-2 font-weight-bold navBarLink" to="/routine">Daily Routine</Link>
+        <Link className="pr-5 pt-2 pb-2 font-weight-bold navBarLink" to="/dashboard">Dashboard</Link>
         {/* <Link className="p-2" to="/moodtracker">Mood Tracker</Link> */}
         {/* <Link to="/visionboard">Vision Board</Link> */}
-        <Link className="p-2" to="/logout" onClick={() => this.handleLogout()}>Logout</Link>
+        <Link className="pr-5 pt-2 pb-2 font-weight-bold navBarLink" to="/logout" onClick={() => this.handleLogout()}>Logout</Link>
         </div>
       </div>
     )

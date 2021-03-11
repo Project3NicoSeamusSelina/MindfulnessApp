@@ -1,7 +1,8 @@
 import React from 'react'
 import axios from 'axios';
 import ToDoListItems from './ToDoListItems';
-
+import './ToDoList.css'
+import FlipMove from "react-flip-move";
 
 export default class ToDoList extends React.Component {
   constructor(props) {
@@ -58,29 +59,38 @@ export default class ToDoList extends React.Component {
     
     if (!this.state.entries){
       return(
-        <div>
-          <h1>Test</h1>
-          <form onSubmit={this.handleSubmit}>
-            <label >
-                ToDo:
-            <input type='text' name='todo' id='todo' value={this.state.todo.value} onChange={this.handleChange}/>
-              </label>
-            <button id='btn' type='submit'>Add to Do</button>
-          </form>
+        <div id="container" className="todoListMain">
+           <img id="illustrationRoutine" src={"./images/illustrationroutine.png"} />
+            <div className="header">
+              <h1 >My daily Routine</h1>
+              <form className="formdiv" onSubmit={this.handleSubmit}>
+                <label >    
+
+                <input type='text' name='todo' id='todo' value={this.state.todo.value} onChange={this.handleChange}/>
+                <button id='buttonroutine' type='submit'>Add Ritual</button>
+                </label>
+              </form>
+            </div>
+          
         </div>
       )
     } else {
-      return(
-        <div>
-          <h1>Test</h1>
-          <form onSubmit={this.handleSubmit}>
-            <label >
-                ToDo:
-            <input type='text' name='todo' id='todo' value={this.state.todo.value} onChange={this.handleChange}/>
-              </label>
-            <button id='btn' type='submit'>Add to Do</button>
-          </form>
-         <ToDoListItems entries={this.state.entries}/>
+
+    return(
+        <div id="container" className="todoListMain">
+          <img id="illustrationRoutine" src={"./images/illustrationroutine.png"} />
+          <div className="header">
+            <h1>My daily Routine</h1>
+            <form className="formdiv" onSubmit={this.handleSubmit}>
+              <label >
+                  
+              <input type='text' name='todo' id='todo' value={this.state.todo.value} onChange={this.handleChange}/>
+              <button id='buttonroutine' type='submit'>Add Ritual</button>
+                </label>
+            </form>
+          <ToDoListItems entries={this.state.entries}/>
+        
+         </div>
         </div>
       )
     }

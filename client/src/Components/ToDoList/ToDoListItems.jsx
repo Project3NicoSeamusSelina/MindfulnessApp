@@ -17,8 +17,8 @@
 //   )
 // }
 
-
 import React from 'react'
+import './ToDoList.css'
 
 export default function ToDoListItems(props) {
   return (
@@ -26,11 +26,11 @@ export default function ToDoListItems(props) {
          <div>
             {props.entries.map(item => {
               return (
-                <div>
-                  <ul>
-                  <li>
-                    {item}
-                  </li>
+                <div classname="licenter">
+                    <ul className="theList">
+                      <li>
+                        {item}
+                    </li>
                   </ul>
                 </div>
             )}
@@ -39,5 +39,4 @@ export default function ToDoListItems(props) {
     
   )
 }
-
 

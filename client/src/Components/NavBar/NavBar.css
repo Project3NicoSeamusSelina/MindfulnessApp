@@ -21,3 +21,8 @@
   margin-top: -4.1em;
   padding: 0;
 }
+
+.navBarLink{
+  text-decoration: none;
+  color:black
+}

@@ -111,7 +111,7 @@ export default class AddEntry extends Component {
         <p className='question'>How would you describe your current mood?</p>
         <div className='optionBoxes'>
         <div className='moodBoxes'  >
-        <div className='imageContainer'>
+        <div className='imageContainer moodBox'>
             <label className='box' >
               <input type="radio" name="ratingMood" value="happy" onChange={this.handleChange} />
               <img src={'/images/Happy.png'} />
@@ -139,7 +139,7 @@ export default class AddEntry extends Component {
         <p className='question'>How motivated to you feel?</p>
         <div className='optionBoxes'>
         <fieldset className='moodBoxes'  >
-          <div className='imageContainer'>
+          <div className='imageContainer motivationBox'>
             <label className='box' >
               <input type="radio" name="ratingMotivation" value="motivated" onChange={this.handleChange} />
               <img src={'./images/fullEnergy.png'} />
