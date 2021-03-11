@@ -2,6 +2,8 @@ import { logout } from '../../services/auth'
 import React, { Component } from 'react'
 import { withRouter } from 'react-router'
 import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
+import './NavBar.css';
+
 
 export default class NavBar extends Component {
 
@@ -21,13 +23,17 @@ export default class NavBar extends Component {
     return (
       
       <div>
-        <Link to="/journal">Journal</Link>
-        <Link to="/routine">Daily Routine</Link>
-        <Link to="/moodtracker">Mood Tracker</Link>
-        <Link to="/visionboard">Vision Board</Link>
-        <Link to="/logout" onClick={() => this.handleLogout()}>Logout</Link>
+        <div className="container rounded-pill navBar d-flex justify-content-center">
+          
+        <Link className="p-2" to="/journal">Journal</Link>
+        <Link className="p-2" to="/routine">Daily Routine</Link>
+        <Link className="p-2" to="/dashboard">Dashboard</Link>
+        {/* <Link className="p-2" to="/moodtracker">Mood Tracker</Link> */}
+        {/* <Link to="/visionboard">Vision Board</Link> */}
+        <Link className="p-2" to="/logout" onClick={() => this.handleLogout()}>Logout</Link>
+        
+        </div>
       </div>
-      
     )
   }
   }

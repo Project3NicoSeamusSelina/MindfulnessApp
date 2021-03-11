@@ -60,6 +60,7 @@ export default class AddEntry extends Component {
       return element.date
     }) */
     return (
+      <div className="container entryHW">
       <div className='entryBox'>
         <h1 id='header'>Add a new entry</h1>
         
@@ -157,7 +158,7 @@ export default class AddEntry extends Component {
         {/* <button style={{border: 'none', background: 'white'}}><ContactSupportRoundedIcon style={{fill:"green"}} onClick={()=>{console.log('boom Selina!!!')}}/></button>*/} 
       <button id='btn' type="submit">Create entry</button>
     </form>
-    
+    </div>
     </div>
     )
   }

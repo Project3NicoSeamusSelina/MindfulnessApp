@@ -99,4 +99,14 @@ input {
 }
 
 
+.entryHW {
+height: 10rem;
+width: 10rem;
+}
 
+.journalContainer {
+  height: 100vh;
+  width: 100vh;
+  background-color: lightblue;
+ 
+}
