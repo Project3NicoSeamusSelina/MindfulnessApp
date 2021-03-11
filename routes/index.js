@@ -2,6 +2,7 @@ const JournalEntry = require('../models/JournalEntry.model')
 const Routine = require('../models/Routine.model')
 const router = require("express").Router();
 const moment = require('moment');
+const User = require('../models/User.model')
 
 router.get("/", (req, res, next) => {
   res.json("All good in here");
@@ -21,7 +22,7 @@ router.get('/getSelectedEntry', (req, res, next) => {
     JournalEntry.findOne({
       date: newdate
     })
-    .populate('user')
+    // .populate('user')
     .then(entries => {
       res.json(entries)
     })
