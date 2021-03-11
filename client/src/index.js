@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import axios from 'axios';
 
-axios.get('http://localhost:5005/auth/loggedin')
+axios.get('http:/auth/loggedin')
   .then(response => {
   
     const user = response.data;
