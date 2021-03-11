@@ -21,16 +21,15 @@ export default class Journal extends Component {
   }
   
   render() {
-    // console.log('JOURNAL', this.state.selectedDay)
+    
     return (
       <div>
         <CalendarSecond getDates={this.getDates} selectedDay={this.state.selectedDay} />
+        <Entry selectedDay={this.state.selectedDay}/>
         <AddEntry />
         {/* <NavBar /> */} 
         {/* <Calendar setSelectedDate={this.setSelectedDate} currentDay={this.state.day}  currentMonth={this.state.month}/>  */}
         {/* <Calendar onDayClick={(e, day, month, year)=> this.onDayClick(e, day, month, year)}/>  */}
-        <Entry selectedDay={this.state.selectedDay}/>
-
       </div>
 
 

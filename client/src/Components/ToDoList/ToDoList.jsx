@@ -1,64 +1,89 @@
-import React, { Component } from "react";
-import './style.css';
-import TodoItems from "./TodoItems"
- 
-class TodoList extends Component {
+import React from 'react'
+import axios from 'axios';
+import ToDoListItems from './ToDoListItems';
+
+
+export default class ToDoList extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      items: []
+    this.state = { 
+      todo: '', 
+      entries:null
     };
-
-    this.addItem = this.addItem.bind(this);
-    this.deleteItem = this.deleteItem.bind(this);
   }
 
-  addItem(e) {
-    if (this._inputElement.value !== "") {
-      let newItem = {
-        text: this._inputElement.value,
-        key: Date.now()
-      };
-   
-      this.setState((prevState) => {
-        return { 
-          items: prevState.items.concat(newItem) 
-        };
-      });
-    }
-    this._inputElement.value = "";
+  componentDidMount() {
+    this.getData();
+  }
+  
+  handleSubmit= event => {
+    console.log('SUBMIT')
+    event.preventDefault();
+    axios.post('/items', {
+      todo: this.state.todo,
      
-    
-       
-    e.preventDefault();
- 
+    })
+      .then(() => {
+        console.log('GET DATA')
+        this.getData()
+        this.setState({
+            todo: '',
+        }) 
+
+      })
   }
-  deleteItem(key) {
-    const filteredItems = this.state.items.filter(function (item) {
-      return (item.key !== key);
-    });
-   
+  
+  handleChange= (event) => {
+    const name = event.target.name
+    let value = event.target.value
     this.setState({
-      items: filteredItems
-    });
+      [name]: value
+    })
   }
-  render() {
-    return (
-      <div className="todoListMain">
-        <div className="header">
-          <form onSubmit={this.addItem}>
-            <input ref={(a) => this._inputElement = a}
-                    placeholder="today i want to...">
-            </input>
-            <button type="submit">add</button>
+
+  getData = () => {   
+    console.log('STEP ONE')
+      axios.get('/items')
+      .then(response => {
+        console.log('RESPONSE', response.data)
+          this.setState({
+          entries: response.data
+        })
+      })
+      .catch(err => console.log(err)) 
+    
+  }
+
+  render(){
+    
+    if (!this.state.entries){
+      return(
+        <div>
+          <h1>Test</h1>
+          <form onSubmit={this.handleSubmit}>
+            <label >
+                ToDo:
+            <input type='text' name='todo' id='todo' value={this.state.todo.value} onChange={this.handleChange}/>
+              </label>
+            <button id='btn' type='submit'>Add to Do</button>
           </form>
         </div>
-        <TodoItems entries={this.state.items}
-                    delete={this.deleteItem}/>
-      </div>
-    );
+      )
+    } else {
+      return(
+        <div>
+          <h1>Test</h1>
+          <form onSubmit={this.handleSubmit}>
+            <label >
+                ToDo:
+            <input type='text' name='todo' id='todo' value={this.state.todo.value} onChange={this.handleChange}/>
+              </label>
+            <button id='btn' type='submit'>Add to Do</button>
+          </form>
+         <ToDoListItems entries={this.state.entries}/>
+        </div>
+      )
+    }
+    
   }
 }
- 
-export default TodoList;

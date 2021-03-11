@@ -5,29 +5,19 @@ import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
 
 export default class NavBar extends Component {
 
-  state = {
-    loggedin: true,
-  }
-
-
     handleLogout = () => {
-      console.log('LOGGEDOUT')
       logout()
-      this.setState({loggedIn: false})
-      this.props.history.push('/login')
-      .then(direction => {
-        console.log(direction)
-        // this.props.history.push('/login')
+      .then( () => {
         this.props.setUser(null)
        
-    
-      })
-     
+      }) 
     }
+
   render() {
-    if(this.state.loggedIn === false) {
-      return (<Redirect to="/login" />)
+    if(!this.props.user) {
+        return (<Redirect to="/" />)
     }
+    else {
     return (
       
       <div>
@@ -39,5 +29,6 @@ export default class NavBar extends Component {
       </div>
       
     )
+  }
   }
 }

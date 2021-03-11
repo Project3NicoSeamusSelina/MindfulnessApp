@@ -26,14 +26,11 @@ export default class VisionBoard extends Component {
       
     })
       .then((response) => {
-        //console.log(response.data, "response at axios post FE")
+        
         this.setState({
           goal:"",
           positiveAffirmation:'',
         })
-        // update the list of projects in Projects.js - we use the getData function 
-        // in the props
-        //console.log(this.state, "stte at FE")
         
       })
   }

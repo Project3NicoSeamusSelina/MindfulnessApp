@@ -29,7 +29,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('APP USER', this.state.user)
+  
     return (
       <div className="App">
         <NavBar user={this.state.user} setUser={this.setUser} />
@@ -77,7 +77,7 @@ class App extends React.Component {
         <Route exact path='/welcomepage' component={WelcomePage} />
         <Route exact path='/dashboard' component={Dashboard} />
         <Route exact path='/journal' component={Journal} user={this.state.user} />
-        <Route exact path='/routine' component={ToDoList} />
+        <Route exact path='/routine' component={ToDoList} user={this.state.user} />
         <Route exact path='/visionboard' component={VisionBoard} />
         
         {/* <Route exact path='/routine' component={TodoItems} /> */}

@@ -9,7 +9,7 @@ const journalEntrySchema = new Schema({
   ratingMood: String,
   ratingMotivation: String,
   user: { type: Schema.Types.ObjectId, 
-    ref: 'User' }
+    ref: 'User.model' }
 });
 
 const JournalEntry = model('journalEntries', journalEntrySchema);
