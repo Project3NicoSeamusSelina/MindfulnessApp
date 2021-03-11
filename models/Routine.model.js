@@ -2,11 +2,9 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
 const routineSchema = new Schema({
-  title: String,
-  description: String,
-  date: Date,
-  checklistItem: Number,
-  User: { type: Schema.Types.ObjectId, ref: 'User' }
+  
+  list: [String],
+  user: { type: Schema.Types.ObjectId, ref: 'User.model' }
 });
 
 const Routine = model('Routine', routineSchema);
