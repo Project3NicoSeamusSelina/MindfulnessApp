@@ -9,17 +9,17 @@ const userSchema = new Schema({
   entries: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Entry'
+      ref: 'entry'
     }
   ],
   routines: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Routine'
+      ref: 'routine'
     }
   ]
 });
 
-const User = model('User', userSchema);
+const User = model('user', userSchema);
 
 module.exports = User;
