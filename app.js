@@ -31,8 +31,6 @@ const mongoose = require('./db/index');
 
 const MongoStore = require('connect-mongo').default;
 
-const path = require('path');
-app.use(express.static(path.join(__dirname, "/client/build")));
 
 app.use(
   session({
@@ -106,6 +104,8 @@ const auth = require('./routes/auth');
 app.use("/auth", auth);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
+const path = require('path');
+app.use(express.static(path.join(__dirname, "/client/build")));
 
 
 
