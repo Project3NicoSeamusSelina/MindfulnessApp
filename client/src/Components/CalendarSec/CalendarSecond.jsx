@@ -36,9 +36,9 @@ export default class CalendarSecond extends React.Component {
           onDayClick={this.handleDayClick}
         />
         <p>
-          {this.state.selectedDay
+          {/* {this.state.selectedDay
             ? this.state.selectedDay.toLocaleDateString()
-            : 'Please select a day 👻'}
+            : 'Please select a day 👻'} */}
         </p>
       </div>
     );
