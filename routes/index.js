@@ -4,9 +4,9 @@ const router = require("express").Router();
 const moment = require('moment');
 const User = require('../models/User.model')
 
-router.get("/", (req, res, next) => {
-  res.json("All good in here");
-});
+// router.get("/", (req, res, next) => {
+//   res.json("All good in here");
+// });
 
 router.get('/getSelectedEntry', (req, res, next) => {
   var d = new Date(req.query.date),
