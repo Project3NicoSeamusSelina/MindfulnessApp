@@ -29,7 +29,7 @@ class App extends React.Component {
   }
 
   render() {
-    console.log('APP USER', this.state.user)
+  
     return (
       <div className="App">
         <NavBar user={this.state.user} setUser={this.setUser} />

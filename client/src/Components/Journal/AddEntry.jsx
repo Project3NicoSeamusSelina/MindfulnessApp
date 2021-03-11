@@ -27,7 +27,7 @@ export default class AddEntry extends Component {
   }
 
   handleSubmit = event => {
-    console.log('STEP 1', this.state)
+    
     event.preventDefault();
     axios.post('/entries', {
       date: this.state.date,
@@ -38,7 +38,7 @@ export default class AddEntry extends Component {
       ratingMotivation: this.state.ratingMotivation
     })
       .then((response) => {
-        //console.log(response.data, "response at axios post FE")
+        
         this.setState({
           journal: response.data,
           date:"",
@@ -49,8 +49,7 @@ export default class AddEntry extends Component {
           ratingMotivation: "",
         })
        
-        //console.log(this.state, "stte at FE")
-        // this.props.getData();
+  
       })
   }
 

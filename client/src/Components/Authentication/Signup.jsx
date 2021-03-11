@@ -13,7 +13,7 @@ export default class Signup extends Component {
   }
 
   handleChange = event => {
-    // console.log('handlechange')
+    
     const { name, value } = event.target;
     this.setState({
       [name]: value
@@ -21,7 +21,7 @@ export default class Signup extends Component {
   }
 
   handleSubmit = event => {
-    // console.log('handlesubmit')
+    
     event.preventDefault();
     const { username, password } = this.state;
     signup(username, password)
