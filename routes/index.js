@@ -52,44 +52,45 @@ router.post('/entries', (req,res, next) => {
 
 
 router.get('/items', (req,res,next)=> {
-  Routine.find().populate('list')
+  console.log('STEP TWO BACKEND')
+  Routine.findOne({user: req.user._id})
   .then(items => {
-    console.log('THESE ARE THE ALL THE ITEMS', items)
-    res.json(items);
+    console.log('THIS IS ITEMS.LIST', items.list)
+    res.json(items.list);
   })
-  .catch(err => {
-    next(err)
-  })
+  .catch(err => next(err))
 })
 
 router.post('/items', (req,res,next) => {
-
   const {todo, user} = req.body;
   console.log("this is the user", user)
   console.log("this is the user from the backend", req.user._id)
-  Routine.findOne({user: user})
+  Routine.findOne({user: req.user._id})
   .then((response)=>{
     if (response === null){
       console.log('Create')
       Routine.create({
         list: [todo],
         user:req.user._id
+      },
+      {
+        new: true
       })
-      .then(response => console.log(response)) 
+      .then(response => res.status(200).json(response)) 
     }
     else{
       console.log('Update')
-      Routine.findOneAndUpdate({user: user},{$push:{list:todo}})
-      .then(response => console.log(response)) 
+      Routine.findOneAndUpdate({user: req.user._id},{$push:{list:todo}},
+        {
+          new: true
+        })
+      .then(response => res.status(200).json(response)) 
     }
   })
-/* 
-  Routine.create({todo, user}) 
-  .then((response) =>{ 
-    console.log("response at BE", response)
-    res.send(response)})
-  .catch(err=> next(err))
- */})
+})
+
+
+
 
 // You put the next routes here 👇
 // example: router.use("/auth", authRoutes)
