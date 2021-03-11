@@ -17,7 +17,7 @@ export default class Dashboard extends Component {
         <div className="d-flex justify-content-center pt-4">
         <img src={"./images/techdash.png"} alt="graphics"/>
 
-    <Card className="singCard d-flex justify-content-center" style={{ width: '30rem' }}>
+    <Card className="singCard d-flex justify-content-center align-self-center border border-white" style={{ width: '30rem' }}>
       <Card.Body>
         <Card.Title></Card.Title>
         <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
