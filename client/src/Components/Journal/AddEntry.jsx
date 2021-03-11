@@ -64,7 +64,7 @@ export default class AddEntry extends Component {
       <div className='entryBox'>
         <h1 id='header'>Add a new entry</h1>
         
-      <form className="formContainer" onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
       <label className='option' htmlFor="date"> </label>
       <input
         type="date"

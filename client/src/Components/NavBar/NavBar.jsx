@@ -22,7 +22,7 @@ export default class NavBar extends Component {
     else {
     return (
       
-      <div>
+      <div className="pt-4">
         <div className="container rounded-pill navBar d-flex justify-content-center">
           
         <Link className="p-2" to="/journal">Journal</Link>
