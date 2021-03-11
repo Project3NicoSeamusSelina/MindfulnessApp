@@ -30,7 +30,7 @@ export default class CalendarSecond extends React.Component {
   render() {
     
     return (
-      <div>
+      <div className="container ">
         <DayPicker
           selectedDays={this.state.selectedDay}
           onDayClick={this.handleDayClick}
