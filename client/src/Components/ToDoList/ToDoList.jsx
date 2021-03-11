@@ -1,75 +1,6 @@
-// import React, { Component } from "react";
-// import './style.css';
-// import TodoItems from "./TodoItems"
- 
-// class TodoList extends Component {
-//   constructor(props) {
-//     super(props);
-
-//     this.state = {
-//       items: []
-//     };
-
-//     this.addItem = this.addItem.bind(this);
-//     this.deleteItem = this.deleteItem.bind(this);
-//   }
-
-//   addItem(e) {
-//     if (this._inputElement.value !== "") {
-//       let newItem = {
-//         text: this._inputElement.value,
-//         key: Date.now()
-//       };
-   
-//       this.setState((prevState) => {
-//         return { 
-//           items: prevState.items.concat(newItem) 
-//         };
-//       });
-//     }
-//     this._inputElement.value = "";
-     
-    
-       
-//     e.preventDefault();
- 
-//   }
-//   deleteItem(key) {
-//     const filteredItems = this.state.items.filter(function (item) {
-//       return (item.key !== key);
-//     });
-   
-//     this.setState({
-//       items: filteredItems
-//     });
-//   }
-//   render() {
-//     return (
-//       <div className="todoListMain">
-//         <div className="header">
-//           <form onSubmit={this.addItem}>
-//             <input ref={(a) => this._inputElement = a}
-//                     placeholder="today i want to...">
-//             </input>
-//             <button type="submit">add</button>
-//           </form>
-//         </div>
-//         <TodoItems entries={this.state.items}
-//                     delete={this.deleteItem}/>
-//       </div>
-//     );
-//   }
-// }
- 
-// export default TodoList;
-
-
-//HERE IS SELINA'S LIST
-
-
 import React from 'react'
 import axios from 'axios';
-import ToDoListItems from './TodoItems';
+import ToDoListItems from './ToDoListItems';
 
 
 export default class ToDoList extends React.Component {
@@ -86,12 +17,14 @@ export default class ToDoList extends React.Component {
   }
   
   handleSubmit= event => {
+    console.log('SUBMIT')
     event.preventDefault();
     axios.post('/items', {
       todo: this.state.todo,
      
     })
       .then(() => {
+        console.log('GET DATA')
         this.getData()
         this.setState({
             todo: '',
@@ -109,8 +42,10 @@ export default class ToDoList extends React.Component {
   }
 
   getData = () => {   
+    console.log('STEP ONE')
       axios.get('/items')
       .then(response => {
+        console.log('RESPONSE', response.data)
           this.setState({
           entries: response.data
         })
@@ -120,7 +55,7 @@ export default class ToDoList extends React.Component {
   }
 
   render(){
-    console.log('THIS IS THE USER', this.props.user)
+    
     if (!this.state.entries){
       return(
         <div>
