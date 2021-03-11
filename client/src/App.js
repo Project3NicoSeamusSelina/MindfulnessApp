@@ -42,10 +42,30 @@ class App extends React.Component {
           exact path='/'
           render={props => {
             if (this.state.user) {
-              return <WelcomePage {...props} />
+              return <Login {...props}
+              user={this.state.user}
+              setUser={this.setUser}
+              />
             } else return <Redirect to='/login' />
           }}
         />
+
+        
+            {/* <Route
+            exact path='/rewards'
+            render={props => {
+              if (this.state.user) return (
+                <Rewards
+                  {...props}
+                  user={this.state.user}
+                  setUser={this.setUser}
+                // toggleFavoriteReward={this.toggleFavoriteReward}
+                />)
+              else return (<Redirect to='/' />)
+            }}
+          /> */}
+
+
         <Route
           exact path='/signup'
           render={props => <Signup setUser={this.setUser} {...props} />}

@@ -30,7 +30,11 @@ export default class Journal extends Component {
         {/* <Calendar setSelectedDate={this.setSelectedDate} currentDay={this.state.day}  currentMonth={this.state.month}/>  */}
         {/* <Calendar onDayClick={(e, day, month, year)=> this.onDayClick(e, day, month, year)}/>  */}
         <Entry selectedDay={this.state.selectedDay}/>
+
       </div>
+
+
+
     )
   }
 }

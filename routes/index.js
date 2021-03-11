@@ -9,11 +9,7 @@ router.get("/", (req, res, next) => {
 router.get('/getSelectedEntry', (req, res, next) => {
   console.log('REQ QUERY HERE 3', typeof req.query.date)
   console.log('THIS IS REQ QUERy DATE', req.query.date)
-  //res.json(req.query.date)
-  // var dateObj = new Date(req.query.date);
-  // var month = dateObj.getUTCMonth() + 1; //months from 1-12
-  // var day = dateObj.getUTCDate();
-  // var year = dateObj.getUTCFullYear();
+  
   var d = new Date(req.query.date),
         month = '' + (d.getMonth() + 1),
         day = '' + d.getDate(),
