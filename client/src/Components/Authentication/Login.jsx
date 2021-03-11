@@ -77,7 +77,7 @@ export default class Login extends Component {
           )}
           
         </form>
-        <div className="d-flex justify-content-center pt-5"><Link to="/signup">New User? Sign up here!</Link></div>
+        <div className="d-flex justify-content-center pt-2"><Link to="/signup">New User? Sign up here!</Link></div>
            </div>
            
         </div>
