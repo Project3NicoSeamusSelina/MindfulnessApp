@@ -60,11 +60,11 @@ export default class AddEntry extends Component {
       return element.date
     }) */
     return (
-      <div className="container entryHW">
+      // <div className="container entryHW">
       <div className='entryBox'>
         <h1 id='header'>Add a new entry</h1>
         
-      <form onSubmit={this.handleSubmit}>
+      <form className="formContainer" onSubmit={this.handleSubmit}>
       <label className='option' htmlFor="date"> </label>
       <input
         type="date"
@@ -159,7 +159,7 @@ export default class AddEntry extends Component {
       <button id='btn' type="submit">Create entry</button>
     </form>
     </div>
-    </div>
+    // </div>
     )
   }
 }

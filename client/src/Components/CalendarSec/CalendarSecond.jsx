@@ -10,6 +10,7 @@ export default class CalendarSecond extends React.Component {
       selectedDay: null,
     };
   }
+  
 
   componentDidUpdate() {
     if(this.props.selectedDay !== this.state.selectedDay){
