@@ -24,11 +24,24 @@ export default class Journal extends Component {
   render() {
     
     return (
-      <div className="container journalContainer d-flex justify-content-center">
-        <CalendarSecond getDates={this.getDates} selectedDay={this.state.selectedDay} />
+      <div className="">
+         <div className="calendarAndPhotoContainer">
+         <CalendarSecond getDates={this.getDates} selectedDay={this.state.selectedDay} />
+            
+            <span className="introJournaling">Studies have traced a range of impressive benefits to the simple act of<b> writing down the things
+              for which we’re grateful </b> — including better sleep, fewer symptoms of illness, and more happiness. <br></br><br></br>
+                Keep a daily record of life's little blessings by answering these questions and establish mindfulness, express gratitude, 
+                and bring lasting, positive change into your life.
+          </span>
+          <img id='illustration' src={'/images/Illustration1.png'} />
+           
+        </div>
+
+        <div className='entriesContainer'>
         <Entry selectedDay={this.state.selectedDay}/>
-         <div className=" d-flex justify-content-center">
+         <div>
         <AddEntry />
+        </div>
         </div>
         
         {/* <NavBar /> */} 

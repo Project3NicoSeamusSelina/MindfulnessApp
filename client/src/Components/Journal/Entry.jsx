@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import AddEntry from './AddEntry';
+import './Journal.css';
 import axios from 'axios';
 
  export default class Entry extends Component {
@@ -33,17 +34,24 @@ import axios from 'axios';
   }
 
   render() {
-    if(!this.state.entry) return (<p>Please select a day</p>)
+    if(!this.state.entry) return (<p className="entriesCalendar"></p>)
     else {
     return (
       
-      <div>
-        <p>Date: {this.state.entry.date} </p>
-        <p>you looked forward to: {this.state.entry.question1}</p>
-        <p>you were grateful for: {this.state.entry.question2}</p>
-        <p>you were focused on: {this.state.entry.question3}</p>
-        <p>Your Mood: {this.state.entry.ratingMood} </p>
-        <p>Your Motivation: {this.state.entry.ratingMotivation}</p> 
+      <div className="entriesCalendar">
+        <h1 className='header2'>Your Journal Entry</h1>
+        <h5>Date</h5>
+        <p>{this.state.entry.date} </p>
+        <h5>What are you looking forward for today?</h5>
+        <p>{this.state.entry.question1}</p>
+        <h5>What are you grateful for?</h5>
+        <p>{this.state.entry.question2}</p>
+        <h5>What is you focus today?</h5>
+        <p>{this.state.entry.question3}</p>
+        <h5>How is your mood today?</h5>
+        <p>{this.state.entry.ratingMood} </p>
+        <h5>How motivated do you feel?</h5>
+        <p> {this.state.entry.ratingMotivation}</p> 
       </div>
     )
     }

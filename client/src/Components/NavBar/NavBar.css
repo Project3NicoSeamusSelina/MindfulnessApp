@@ -4,3 +4,20 @@
   
 }
 
+.logoNavBarContainer{
+
+  display: flex;
+  justify-content: flex-start; 
+  margin-top: 1em;
+}
+
+#logo{
+ margin: 0cm;
+  width: 15em;
+}
+
+#logoPosition{
+  position: absolute;
+  margin-top: -4.1em;
+  padding: 0;
+}

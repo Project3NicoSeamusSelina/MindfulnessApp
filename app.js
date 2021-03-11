@@ -43,7 +43,7 @@ app.use(
     // even if the session was never modified during the request.
     resave: true,
     store: MongoStore.create({
-      // mongooseConnection: mongoose.connection
+      /* mongooseConnection: mongoose.connection */
       mongoUrl: process.env.MONGODB_URI
     })
   })

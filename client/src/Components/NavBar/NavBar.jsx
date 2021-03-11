@@ -22,7 +22,10 @@ export default class NavBar extends Component {
     else {
     return (
       
-      <div>
+      <div className='logoNavBarContainer'>
+          <div id='logoPosition'>
+          <img id='logo'  src={'/images/Logo_schwarz.png'} />
+          </div>
         <div className="container rounded-pill navBar d-flex justify-content-center">
           
         <Link className="p-2" to="/journal">Journal</Link>
@@ -31,7 +34,6 @@ export default class NavBar extends Component {
         {/* <Link className="p-2" to="/moodtracker">Mood Tracker</Link> */}
         {/* <Link to="/visionboard">Vision Board</Link> */}
         <Link className="p-2" to="/logout" onClick={() => this.handleLogout()}>Logout</Link>
-        
         </div>
       </div>
     )

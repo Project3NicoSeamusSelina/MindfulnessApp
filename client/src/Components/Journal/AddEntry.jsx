@@ -60,11 +60,13 @@ export default class AddEntry extends Component {
       return element.date
     }) */
     return (
-      <div className="container entryHW">
+      
       <div className='entryBox'>
-        <h1 id='header'>Add a new entry</h1>
+        <h1 className='header2'>Create a Memory</h1>
         
+      
       <form onSubmit={this.handleSubmit}>
+      <div className='openQuestionFields'> 
       <label className='option' htmlFor="date"> </label>
       <input
         type="date"
@@ -104,22 +106,24 @@ export default class AddEntry extends Component {
           onChange={this.handleChange}
           
         />
-        
+        </div>
+
         <p className='question'>How would you describe your current mood?</p>
         <div className='optionBoxes'>
         <div className='moodBoxes'  >
+        <div className='imageContainer'>
             <label className='box' >
               <input type="radio" name="ratingMood" value="happy" onChange={this.handleChange} />
               <img src={'/images/Happy.png'} />
             </label>
         
           <label className='box'>
-            <input type="radio" name="ratingMood"   value="ratherHappy" onChange={this.handleChange} />
+            <input type="radio" name="ratingMood"   value="rather happy" onChange={this.handleChange} />
             <img src={'/images/ratherHappy.png'} />
           </label>
 
           <label className='box'>
-            <input type="radio" value="ratherUnhappy" name= "ratingMood" onChange={this.handleChange} />
+            <input type="radio" value="rather unhappy" name= "ratingMood" onChange={this.handleChange} />
             <img src={'/images/ratherUnhappy.png'} />
           </label>
 
@@ -127,6 +131,7 @@ export default class AddEntry extends Component {
             <input type="radio" value="unhappy"  name= "ratingMood" onChange={this.handleChange}/>
             <img src={'./images/Unhappy.png'} />
           </label>
+          </div>
         </div>
         </div>
 
@@ -134,32 +139,34 @@ export default class AddEntry extends Component {
         <p className='question'>How motivated to you feel?</p>
         <div className='optionBoxes'>
         <fieldset className='moodBoxes'  >
+          <div className='imageContainer'>
             <label className='box' >
               <input type="radio" name="ratingMotivation" value="motivated" onChange={this.handleChange} />
               <img src={'./images/fullEnergy.png'} />
             </label>
 
           <label className='box'>
-            <input type="radio" name="ratingMotivation" value="ratherMotivated" onChange={this.handleChange} />
+            <input type="radio" name="ratingMotivation" value="rather motivated" onChange={this.handleChange} />
             <img src={'./images/muchEnergy.png'} />
           </label>
 
           <label className='box'>
-            <input type="radio" name="ratingMotivation" value="littleMotivated" onChange={this.handleChange}/>
+            <input type="radio" name="ratingMotivation" value="little motivated" onChange={this.handleChange}/>
             <img src={'./images/littleEnergy.png'} />
           </label>
 
           <label className='box'>
-            <input type="radio" name="ratingMotivation" value="notMotivated" onChange={this.handleChange}/>
+            <input type="radio" name="ratingMotivation" value="unmotivated" onChange={this.handleChange}/>
             <img src={'./images/noEnergy.png'} />
           </label>
+          </div>
         </fieldset>
         </div>
         {/* <button style={{border: 'none', background: 'white'}}><ContactSupportRoundedIcon style={{fill:"green"}} onClick={()=>{console.log('boom Selina!!!')}}/></button>*/} 
       <button id='btn' type="submit">Create entry</button>
     </form>
     </div>
-    </div>
+    
     )
   }
 }

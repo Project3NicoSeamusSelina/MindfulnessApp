@@ -1,8 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
 
-form{
-  font: 500 1rem/1.1 'Montserrat', sans-serif;
+
+/* This is the Add Entry Form */
+.entryBox{
+  margin:0em;
+  width: 35em;
+  
 }
+
+.imageContainer{
+  display: flex;
+  flex-wrap: wrap;
+}
+
 [type=radio] { 
   position: absolute;
   opacity: 0;
@@ -24,17 +34,19 @@ form{
   filter: invert(12%) sepia(41%) saturate(6285%) hue-rotate(323deg) brightness(96%) contrast(101%);
  }
 
-#header{
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.header2{
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 3em;
   margin-top:1em;
 }
 
 .option{
-  margin-top: 2em;
+  margin-top: 0em;
+  
 }
 
 input {
-  width:60%;
   border-radius:10px;
   padding:10px;
   border:0;
@@ -54,59 +66,83 @@ input {
   box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
 }
 
-.moodBoxes {
-  
-  margin-top: 0em;
+.openQuestionFields{
   display: flex;
-  direction: column;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-.optionBoxes{
+/* .optionBoxes{
   margin-bottom: 0;
   width: 60%;
   display: flex;
   direction: column;
-  justify-content: flex-start;
+  justify-content: flex-start; 
   margin-left: 20%;
-}
+} */
 
 .question{
-  margin-top: 1em;
+  margin-top: 2em;
   margin-bottom: 0.5em;
-  width: 60%;
-  display: flex;
-  direction: column;
-  justify-content: flex-start;
-  margin-left: 20%;
+ text-align: left;
 }
 
 #btn{
   background-color: black;
   color: white;
-  width: 15%;
   border-radius:10px;
   padding:10px;
-  display: flex;
-  direction: column;
-  justify-content: flex-start;
-  
-  margin-left: 20%;
   margin-top: 1em;
   text-align: center;
   text-transform: uppercase;
 }
 
-
-.entryHW {
-height: 10rem;
-width: 10rem;
+h1 {
+  color: black;
+  font-family: 'Cormorant Garamond', serif;
 }
 
-.journalContainer {
-  height: 100vh;
-  width: 100vh;
+
+
+.entriesCalendar{
+  font-family: 'Roboto', sans-serif;
+  width: 20cm;
+  margin:0;
   
- 
 }
+
+h5{
+  font-size:2em;
+  font-weight: 500;
+  
+}
+
+#illustration{
+width: 25em;
+
+}
+.calendarAndPhotoContainer{
+  margin-left:6em;
+  margin-top: 2em;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.introJournaling{
+  width: 25em;
+}
+
+.containerCalendar{
+  margin-top: 3em;
+}
+
+.entriesContainer{
+  margin:2em;
+  display: flex;
+  align-items: flex-start;
+  width: 100em;
+  
+}
+
+

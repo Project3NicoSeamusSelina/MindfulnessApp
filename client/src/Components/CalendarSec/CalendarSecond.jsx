@@ -1,6 +1,7 @@
 import React from 'react';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
+import '../Journal/Journal.css';
 
 export default class CalendarSecond extends React.Component {
   constructor(props) {
@@ -30,7 +31,8 @@ export default class CalendarSecond extends React.Component {
   render() {
     
     return (
-      <div className="container ">
+      <div className="containerCalendar">
+                
         <DayPicker
           selectedDays={this.state.selectedDay}
           onDayClick={this.handleDayClick}
