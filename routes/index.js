@@ -2,6 +2,7 @@ const JournalEntry = require('../models/JournalEntry.model')
 const Routine = require('../models/Routine.model')
 const router = require("express").Router();
 const moment = require('moment');
+const User = require('../models/User.model')
 
 router.get("/", (req, res, next) => {
   res.json("All good in here");
@@ -21,7 +22,7 @@ router.get('/getSelectedEntry', (req, res, next) => {
     JournalEntry.findOne({
       date: newdate
     })
-    .populate('user')
+    // .populate('user')
     .then(entries => {
       res.json(entries)
     })
@@ -85,35 +86,35 @@ router.post('/items', (req,res,next) => {
 
 //Todolist here 
 
-router.post('/items', (req,res,next) => {
-  const {todo, user} = req.body;
-  console.log("this is the user", user)
-  console.log("this is the user from the backend", req.user._id)
-  Routine.findOne({user: user})
-  .then((response)=>{
-    if (response === null){
-      console.log('Create')
-      Routine.create({
-        list: [todo],
-        user:req.user._id
-      })
-      .then(response => console.log(response)) 
-    }
-    else{
-      console.log('Update')
-      Routine.findOneAndUpdate({user: user},{$push:{list:todo}})
-      .then(response => console.log(response)) 
-    }
-  })
-})
+// router.post('/items', (req,res,next) => {
+//   const {todo, user} = req.body;
+//   console.log("this is the user", user)
+//   console.log("this is the user from the backend", req.user._id)
+//   Routine.findOne({user: user})
+//   .then((response)=>{
+//     if (response === null){
+//       console.log('Create')
+//       Routine.create({
+//         list: [todo],
+//         user:req.user._id
+//       })
+//       .then(response => console.log(response)) 
+//     }
+//     else{
+//       console.log('Update')
+//       Routine.findOneAndUpdate({user: user},{$push:{list:todo}})
+//       .then(response => console.log(response)) 
+//     }
+//   })
+// })
 
-router.get('/items', (req,res,next)=> {
-  Routine.findOne({user: req.user._id})
-  .then(items => {
-    res.json(items.list);
-  })
-  .catch(err => next(err))
-})
+// router.get('/items', (req,res,next)=> {
+//   Routine.findOne({user: req.user._id})
+//   .then(items => {
+//     res.json(items.list);
+//   })
+//   .catch(err => next(err))
+// })
 
 module.exports = router;
 
